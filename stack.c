@@ -17,6 +17,15 @@ int isFull(s *myStack) {
   }
 }
 
+// check if the stack is empty
+int isEmpty(s *myStack) {
+  if (myStack->top == -1) {
+    return 1;
+  } else {
+    return 0;
+  }
+}
+
 // initialize stack
 void initialize(s *myStack) {
   myStack->top = -1;
@@ -33,15 +42,6 @@ void push(s *myStack, int newItem) {
   }
 }
 
-// check if the stack is empty
-int isEmpty(s *myStack) {
-  if (myStack->top == -1) {
-    return 1;
-  } else {
-    return 0;
-  }
-}
-
 // remove last element from stack
 int pop(s *myStack) {
   if (isEmpty(myStack)) {
@@ -52,6 +52,15 @@ int pop(s *myStack) {
   int poppedItem = myStack->items[myStack->top];
   myStack->top--;
   return poppedItem;
+}
+
+int peek(s *myStack){
+  if (isEmpty(myStack)){
+     printf("\n Stack Empty \n");
+    return -1;
+  } else {
+    return myStack->items[myStack->top];
+  }
 }
 
 // print stack
